@@ -137,7 +137,7 @@ function init() {
     }
   });
   // start when touch
-  $(document).on("tap", function () {
+  $(document).on("touchstart", function () {
     if (!gameStarted) {
       gameStarted = true;
       $("#level-title")
