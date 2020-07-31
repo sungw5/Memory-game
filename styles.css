@@ -8,6 +8,21 @@ body {
   font-size: 3rem;
   margin:  5%;
   color: #FEF2BF;
+  color: #ac53ac;
+  
+}
+
+.floating{
+  animation-name: floating;
+  animation-duration: 1.1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+  from { transform: translate(0,  0px); }
+  65%  { transform: translate(0, 10px); }
+  to   { transform: translate(0, -0px); }    
 }
 
 .container {
@@ -55,7 +70,7 @@ body {
   background-color: grey;
 }
 
-.success {
+.success{
   position: absolute;
   bottom: 100px;
   left: 50%;
@@ -64,4 +79,17 @@ body {
   color: rgb(104, 236, 87);
   letter-spacing: 7px;
   font-family: 'Press Start 2P', cursive;
+}
+
+.amazing, .unbelievable {
+  position: absolute; 
+  top: 100px; 
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 40px;
+}
+
+.unbelievable{
+  color: #d65d37;
 }

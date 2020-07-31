@@ -23,6 +23,30 @@ function nextSequence() {
   // level up
   level++;
   $("#level-title").html("Level " + level);
+  if (level >= 5) {
+    $("#level-title").css("color", "#9dd88e");
+    setTimeout(function () {
+      if (level >= 10) {
+        $("<h3>Unbelievable!!</h3>")
+          .addClass("unbelievable")
+          .appendTo("#level-title")
+          .slideToggle(2000)
+          .fadeOut(1000);
+      } else {
+        $("<h3>You are amazing!</h3>")
+          .addClass("amazing")
+          .appendTo("#level-title")
+          .slideToggle(2000)
+          .fadeOut(1000);
+      }
+    }, 200);
+    if (level > 10) {
+      $("#level-title").css("color", "#cf7761");
+      if (level > 15) {
+        $("#level-title").css("color", "#ac53ac");
+      }
+    }
+  }
 
   let rnum = Math.floor(Math.random() * 5);
   let randomChosenColor = buttonColors[rnum];
@@ -94,6 +118,7 @@ function startOver() {
   level = 0;
   gamePattern = [];
   gameStarted = false;
+  $("#level-title").css("color", "#FEF2BF");
 }
 
 ////////////////////////////////////////////////////////
@@ -105,7 +130,9 @@ function init() {
   $(document).keypress(function () {
     if (!gameStarted) {
       gameStarted = true;
-      $("#level-title").html("Level " + level);
+      $("#level-title")
+        .html("Level " + level)
+        .removeClass("floating");
       nextSequence();
     }
   });
