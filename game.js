@@ -67,9 +67,17 @@ function checkAnswer(currentLevel) {
   if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
     if (gamePattern.length === userClickedPattern.length) {
       setTimeout(nextSequence, 1000);
+      setTimeout(function () {
+        $("<h2>SUCCESS!</h2>")
+          .addClass("success")
+          .prependTo("body")
+          .slideToggle(2000)
+          .fadeOut(1000);
+      }, 200);
     }
-  } else {
-    //   Game over
+  }
+  //   Game over
+  else {
     $("body").addClass("game-over");
     playSound(WRONG);
     $("h1").text("Game Over, Press Any Key to Restart");
@@ -87,6 +95,7 @@ function startOver() {
   gamePattern = [];
   gameStarted = false;
 }
+
 ////////////////////////////////////////////////////////
 ///////////////////////// MAIN /////////////////////////
 ////////////////////////////////////////////////////////
