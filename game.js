@@ -136,7 +136,18 @@ function init() {
       nextSequence();
     }
   });
+  // start when touch
+  $(document).on("tap", function () {
+    if (!gameStarted) {
+      gameStarted = true;
+      $("#level-title")
+        .html("Level " + level)
+        .removeClass("floating");
+      nextSequence();
+    }
+  });
 
+  // click color eventlistener
   $(".btn").click(clickColor);
 }
 
